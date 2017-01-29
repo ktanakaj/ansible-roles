@@ -2,8 +2,8 @@
 [Vagrantfile](https://www.vagrantup.com/docs/vagrantfile/) for some blank environments.
 
 ## Requirement
-* >= Vagrant 1.8.x
-* >= VirtualBox 5.0.x
+* &gt;= Vagrant 1.8.x
+* &gt;= VirtualBox 5.0.x
 * vagrant-vbguest
 
 ## Note
@@ -14,6 +14,9 @@ The `virtualbox` may need additional configuration such as following.
 If you create a node application in `/vagrant` directory, you must use `--no-bin-links` option to `npm install` because the `virtualbox` deny any symbolic links.
 
 And also, the watch feature for monitoring file updates on some applications such as pm2, webpack, browserify must use pooling option for `virtualbox`.
+
+## Example
+You can see some vagrant examples in [my other repositories](https://github.com/ktanakaj).
 
 ## License
 [MIT](https://github.com/ktanakaj/vagrantfiles/blob/master/LICENSE)
