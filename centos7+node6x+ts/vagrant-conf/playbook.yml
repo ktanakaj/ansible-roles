@@ -78,7 +78,7 @@
           service: name=firewalld state=reloaded enabled=yes
       - block:
         - name: Check "pm2" service registration
-          shell: systemctl status pm2.service | grep -e "enabled"
+          shell: systemctl status pm2-vagrant.service | grep -e "enabled"
           register: pm2_service_loaded
           check_mode: no
           changed_when: false

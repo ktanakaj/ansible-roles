@@ -20,6 +20,6 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell", run: "always" do |s|
-    s.inline = "ip a show dev eth1 ; sudo systemctl restart pm2"
+    s.inline = "ip a show dev eth1 ; sudo systemctl restart pm2-vagrant"
   end
 end
