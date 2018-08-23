@@ -3,7 +3,7 @@
   vars:
     timezone: "Asia/Tokyo"
     nodesource: https://rpm.nodesource.com/setup_10.x
-    app_nginx_conf_src: "/vagrant/vagrant-conf/nginx-vagrant.conf"
+    app_nginx_conf_src: "/vagrant/vagrant-conf/nginx-vagrant.conf.j2"
     app_nginx_conf_dest: /etc/nginx/default.d/vagrant.conf
   tasks:
     - block:
@@ -60,7 +60,10 @@
         - name: Action to enable service mariadb
           service: name=mariadb state=started enabled=yes
         - name: Copy the web app configuration to nginx
-          copy: src={{ app_nginx_conf_src }} dest={{ app_nginx_conf_dest }} force=no
+          template:
+            src: "{{ app_nginx_conf_src }}"
+            dest: "{{ app_nginx_conf_dest }}"
+            force: no
         - name: Action to enable service nginx
           service: name=nginx state=restarted enabled=yes
       - block:
