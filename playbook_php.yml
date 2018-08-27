@@ -1,0 +1,10 @@
+---
+- hosts: default
+  become: true
+  roles:
+  - timezone
+  - selinux/disable
+  - firewalld
+  - apache
+  - php
+  - mariadb

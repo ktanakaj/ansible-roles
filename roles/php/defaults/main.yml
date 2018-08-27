@@ -1,0 +1,2 @@
+php_apache_conf_src: "apache.conf.j2"
+php_apache_conf_dest: /etc/httpd/conf.d/phpapp.conf
