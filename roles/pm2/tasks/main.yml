@@ -1,6 +1,7 @@
 ---
 - name: Install "pm2" node.js package globally
   npm: name=pm2 global=yes
+
 - name: Check "pm2" service registration
   shell: systemctl status {{ service }}.service | grep -e "enabled"
   register: pm2_service_loaded
@@ -12,6 +13,7 @@
   when: pm2_service_loaded.stdout == ""
 - name: Action to enable service pm2
   service: name={{ service }} state=started enabled=yes
+
 - name: Install "pm2-intercom" module to pm2
   shell: pm2 install pm2-intercom
   when: pm2_service_loaded.stdout == ""

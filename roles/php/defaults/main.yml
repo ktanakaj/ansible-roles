@@ -1,2 +1,11 @@
+php_packages:
+  - php
+  - php-pdo
+  - php-mysqlnd
+  - php-mbstring
+  - php-xml
+  - php-intl
+
 php_apache_conf_src: "apache.conf.j2"
 php_apache_conf_dest: /etc/httpd/conf.d/phpapp.conf
+app_document_root: /vagrant

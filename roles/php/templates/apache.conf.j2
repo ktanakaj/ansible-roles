@@ -1,11 +1,11 @@
 <VirtualHost _default_:80>
-	DocumentRoot /vagrant
+	DocumentRoot {{ app_document_root }}
 
 	<filesMatch "\.(js|html|css|php)$">
 		SetOutputFilter DEFLATE
 	</filesMatch>
 
-	<Directory /vagrant>
+	<Directory {{ app_document_root }}>
 		AllowOverride All
 		Require all granted
 	</Directory>
