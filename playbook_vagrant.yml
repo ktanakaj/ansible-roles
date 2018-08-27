@@ -1,0 +1,10 @@
+---
+- hosts: default
+  become: true
+  roles: # Vagrantのansible_localで使うプレイブックのサンプル。必要に応じてroleを切り替えてください
+  - timezone
+  - selinux/disable
+  - firewalld
+  - git
+  - nginx
+  - mariadb

@@ -10,7 +10,7 @@
 *.suo
 *.csproj
 *.njsproj
-playbook.retry
+playbook*.retry
 node_modules
 Temp
 Obj

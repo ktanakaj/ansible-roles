@@ -12,3 +12,7 @@
   when: pm2_service_loaded.stdout == ""
 - name: Action to enable service pm2
   service: name={{ service }} state=started enabled=yes
+- name: Install "pm2-intercom" module to pm2
+  shell: pm2 install pm2-intercom
+  when: pm2_service_loaded.stdout == ""
+  become: false
