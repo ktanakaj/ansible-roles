@@ -1,0 +1,9 @@
+---
+- name: Install the latest version of MariaDB
+  yum: name=mariadb state=latest
+- name: Install the latest version of MariaDB server
+  yum: name=mariadb-server state=latest
+- name: Install the latest version of MySQL-python
+  yum: name=MySQL-python state=latest
+- name: Action to enable service mariadb
+  service: name=mariadb state=started enabled=yes

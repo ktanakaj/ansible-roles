@@ -1,0 +1,12 @@
+---
+- hosts: default
+  become: true
+  roles:
+  - timezone
+  - selinux/disable
+  - firewalld
+  - git
+  - nginx
+  - nodejs
+  - mariadb
+  - pm2

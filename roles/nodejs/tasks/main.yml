@@ -1,0 +1,17 @@
+---
+- name: Check Node.js repository version
+  shell: yum info nodejs | grep -e "Version\s*:\s*1[0-9].*$"
+  register: nodejs_repository_version
+  check_mode: no
+  changed_when: false
+  failed_when: false
+- name: Register Node.js repository
+  shell: curl --silent --location {{ nodesource }} | bash -
+  when: nodejs_repository_version.stdout == ""
+- name: Install the latest version of Node.js
+  yum: name=nodejs state=latest
+- name: Copy Node.js application configuration to nginx
+  template:
+    src: "{{ nodejs_nginx_conf_src }}"
+    dest: "{{ nodejs_nginx_conf_dest }}"
+    force: no
