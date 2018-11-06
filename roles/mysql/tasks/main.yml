@@ -1,7 +1,6 @@
 ---
 - name: Register MySQL repository
-  yum: name={{ mysqlsource }}
-  state: present
+  yum: name={{ mysqlsource }} state=present
 
 - name: Install the latest version of MySQL
   yum: name=mysql-server state=latest
