@@ -1,0 +1,11 @@
+---
+- name: Check td-agent installed
+  shell: yum info td-agent | grep -e "Repo\s*:\s*installed$"
+  register: tdagent_installed
+  check_mode: no
+  changed_when: false
+  failed_when: false
+- name: Install td-agent 3.x
+  shell: curl -L {{ tdagentsource }} | sh
+  when: tdagent_installed.stdout == ""
+  notify: Restart td-agent
