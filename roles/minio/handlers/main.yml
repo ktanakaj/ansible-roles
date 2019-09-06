@@ -1,0 +1,3 @@
+- name: Restart MinIO
+  service: name=minio state=restarted enabled=yes
+  become: yes

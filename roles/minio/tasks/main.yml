@@ -1,0 +1,27 @@
+---
+- name: Check MinIO installed
+  stat:
+    path: "{{ minio_bin }}"
+  register: minio_installed
+
+- name: Create MinIO data directory
+  file: path={{ minio_data }} state=directory owner={{ user }} group={{ group }} mode=0700
+
+- name: Install MinIO
+  get_url:
+    url: "{{ miniosource }}"
+    dest: "{{ minio_bin }}"
+    mode: '0755'
+  when: not minio_installed.stat.exists
+
+- name: Copy MinIO service to systemd
+  template:
+    src: "{{ minio_service_src }}"
+    dest: "{{ minio_service_dest }}"
+    force: yes
+  when: not minio_installed.stat.exists
+  notify: Restart MinIO
+
+- name: Open port for MinIO
+  firewalld: port={{ minio_port }}/tcp permanent=true state=enabled
+  notify: Restart firewalld

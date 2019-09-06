@@ -1,0 +1,10 @@
+minio_bin: "/usr/local/bin/minio"
+minio_data: "/var/local/minio"
+user: "nginx"
+group: "nginx"
+minio_port: 9000
+minio_service_src: "minio.service.j2"
+minio_service_dest: "/etc/systemd/system/minio.service"
+minio_access_key: "LSCR3ZDHZZBVMXP2QHEW"
+minio_secret_key: "W4b4INV3WR4quvmqCMqWB9MFzdsKESsiZ0aV8Jfv"
+minio_region: "ap-northeast-1"
