@@ -1,0 +1,18 @@
+---
+- name: Install the latest version of yum-cron
+  yum: name=yum-cron state=latest
+  notify: Restart yumcron
+
+- name: Change apply_updates
+  lineinfile:
+    dest: "{{ yumcron_conf_dest }}"
+    regexp: '^apply_updates\s*='
+    line: 'apply_updates = yes'
+  notify: Restart yumcron
+
+- name: Change update_cmd
+  lineinfile:
+    dest: "{{ yumcron_conf_dest }}"
+    regexp: '^update_cmd\s*='
+    line: 'update_cmd = security'
+  notify: Restart yumcron

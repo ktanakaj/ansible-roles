@@ -1,0 +1,3 @@
+- name: Restart yumcron
+  service: name=yum-cron state=restarted enabled=yes
+  become: yes
