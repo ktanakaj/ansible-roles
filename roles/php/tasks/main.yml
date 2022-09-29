@@ -4,7 +4,7 @@
 - name: Install the latest version of yum-utils
   yum: name=yum-utils state=latest
 - name: Check PHP version
-  shell: yum info php | grep -e "Version\s*:\s*7\."
+  shell: yum info php | grep -e "Version\s*:\s*8\."
   register: php_version
   check_mode: no
   changed_when: false
@@ -14,8 +14,7 @@
   when: php_version.stdout == ""
 
 - name: Install the latest version of PHP Packages
-  yum: name={{ item }} state=latest
-  with_items: "{{ php_packages }}"
+  yum: name={{ php_packages }} state=latest
 
 - name: Install Composer
   get_url:

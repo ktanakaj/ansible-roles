@@ -1,5 +1,5 @@
 ---
-- name: Install the latest version of Python3.6
-  yum: name=python36 state=latest
+- name: Install the latest version of Python3
+  yum: name=python3 state=latest
 - name: Install the latest version of PIP
-  yum: name=python36-pip state=latest
+  yum: name=python3-pip state=latest

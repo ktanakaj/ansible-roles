@@ -3,7 +3,7 @@
   yum: name={{ dotnetsource }} state=present
 
 - name: Install the latest version of .NET Core
-  yum: name=dotnet-sdk-2.1 state=latest
+  yum: name=dotnet-sdk-6.0 state=latest
 
 - name: Copy .NET application configuration to nginx
   template:
